@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Water</title>
+</head>
+<body>
+<h1>Water!</h1>
+<h2>What's your favorite brand of water?</h2>
+<ul>
+    <li><a href="/water/ozarka">Ozarka Water</a></li>
+    <li><a href="/water/smart">Smart Water</a></li>
+    <li><a href="/water/dasani">Dasani Water</a></li>
+</ul>
+
+<h2 th:if="${water_brand}">
+    <p>You love [[${water_brand}]] water</p>
+</h2>
+
+
+</body>
+</html>
