@@ -1,9 +1,18 @@
 <div th:fragment="navbar">
-    <div class="navbar">
-        <a class="active" th:href="@{/}">Home</a>
-        <a th:href="@{/coffee}">Coffee</a>
-        <a th:href="@{/roll-dice}">Roll-dice</a>
-        <a th:href="@{/water}">Water</a>
-        <a th:href="@{/posts}">Posts</a>
-    </div>
+    <nav class="navbar">
+        <a class="logo" href="#">Logo</a>
+        <div class="menu justify-center">
+            <a href="#" th:href="@{/}">Home</a>
+            <a href="#" th:href="@{/coffee}">Coffee</a>
+            <a href="#" th:href="@{/roll-dice}">Roll-dice</a>
+            <a href="#" th:href="@{/water}">Water</a>
+            <a href="#" th:href="@{/posts}">Posts</a>
+            <a href="#" th:href="@{/ads}">Ads</a>
+            <a href="#" th:href="@{/ads/create}">Create Ad</a>
+        </div>
+        <div class="login-logout ">
+            <a href="#" th:href="@{/}">Login</a>
+            <a href="#" th:href="@{/}">Logout</a>
+        </div>
+    </nav>
 </div>
