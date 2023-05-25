@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Coffee</title>
+    <div th:replace="partials/head :: head"></div>
 </head>
 <body>
+<div th:replace="partials/navbar :: navbar">
+
+</div>
+
     <h1>Coffee!</h1>
     <h2>What's your favorite roast</h2>
     <ul>

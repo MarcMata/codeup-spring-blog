@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+
+    <div th:replace="partials/head :: head"></div>
+</head>
+<body>
+
+<div th:replace="partials/navbar :: navbar"></div>
+
+<h1>Posts</h1>
+
+<!--use each for thymeleaf-->
+<div th:each="post : ${posts}">
+    <h2 th:text="${post.title}"></h2>
+    <p th:text="${post.body}"></p>
+    <a th:href="@{/posts/{id}/edit(id=${post.id})}">Edit</a>
+    <a th:href="@{/posts/{id}/delete(id=${post.id})}">Delete</a>
+</div>
+
+</body>
+</html>
