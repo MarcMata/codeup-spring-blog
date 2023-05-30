@@ -19,7 +19,8 @@ public class PostController {
 
     @GetMapping("/posts")
     public String allPosts(Model model) {
-        model.addAttribute("posts", postsDao.findAll());
+        System.out.println(model.addAttribute("posts",postsDao.findAll()));
+        model.addAttribute("posts", postsDao.findAll());;
         return "posts/index";
     }
 
@@ -32,7 +33,7 @@ public class PostController {
 
     @GetMapping("/posts/{id}/edit")
     public String editPostForm(@PathVariable long id, Model model) {
-        Post post = postsDao.getReferenceById(id);
+        Post post = postsDao.findById(id);
         model.addAttribute("post", post);
         return "posts/edit";
     }
