@@ -6,13 +6,30 @@
             <a href="#" th:href="@{/coffee}">Coffee</a>
             <a href="#" th:href="@{/roll-dice}">Roll-dice</a>
             <a href="#" th:href="@{/water}">Water</a>
-            <a href="#" th:href="@{/posts}">Posts</a>
-            <a href="#" th:href="@{/ads}">Ads</a>
-            <a href="#" th:href="@{/ads/create}">Create Ad</a>
+            <div class="dropdown align-center justify-center d-flex">
+                <button class="dropbtn">
+                    Ads
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" th:href="@{/ads}">Show all Ads</a>
+                    <a href="#" th:href="@{/ads/create}">Create an Ad</a>
+                </div>
+            </div>
+            <div class="dropdown align-center justify-center d-flex">
+                <button class="dropbtn">
+                    Posts
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" th:href="@{/posts}">Show all Posts</a>
+                    <a href="#" th:href="@{/posts/create}">Create a Post</a>
+                </div>
+            </div>
         </div>
         <div class="login-logout ">
-            <a href="#" th:href="@{/}">Login</a>
-            <a href="#" th:href="@{/}">Logout</a>
+            <a href="#" th:href="@{/login}">Login</a>
+            <a href="#" th:href="@{/logout}">Logout</a>
         </div>
     </nav>
 </div>

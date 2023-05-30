@@ -8,8 +8,8 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: #333;
-    overflow: hidden;
     padding: 0 1rem;
+    position: relative;
 }
 
 .navbar .logo {
@@ -69,4 +69,68 @@ li a {
 a:hover {
     color: cornflowerblue;
     text-decoration: underline;
+}
+
+/*card*/
+
+.card {
+    max-width: 300px;
+    margin: 1rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: lightgray;
+    min-height: 150px;
+
+}
+
+
+/*Dropdown*/
+
+.dropdown {
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 9;
+    background-color: gray;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top: 100%;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown.align-center.justify-center.d-flex :hover{
+    background-color: gray;
+    color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*dropdown content on hover just changes text color and keeps the grey*/
+.dropdown-content a:hover {
+    background-color: gray;
+    color: #000;
 }
