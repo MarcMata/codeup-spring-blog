@@ -1,4 +1,4 @@
-package com.codeup.codeupspringblog.repositories;
+package com.codeup.codeupspringblog.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
