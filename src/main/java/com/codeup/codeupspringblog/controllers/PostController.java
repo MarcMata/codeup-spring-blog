@@ -26,7 +26,7 @@ public class PostController {
 
     @GetMapping("/posts/{id}/view")
     public String viewIndividualPost(@PathVariable long id, Model model) {
-        Post post = postsDao.getReferenceById(id);
+        Post post = postsDao.findById(id);
         model.addAttribute("post", post);
         return "posts/show";
     }
