@@ -2,6 +2,7 @@ package com.codeup.codeupspringblog.controllers;
 
 import com.codeup.codeupspringblog.models.Post;
 import com.codeup.codeupspringblog.repositories.PostRepository;
+import com.codeup.codeupspringblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +12,13 @@ import java.util.List;
 
 @Controller
 public class PostController {
-    private final PostRepository postsDao;
+    private PostRepository postsDao;
+    private UserRepository usersDao;
 
-    public PostController(PostRepository postsDao) {
+
+    public PostController(PostRepository postsDao, UserRepository usersDao) {
         this.postsDao = postsDao;
+        this.usersDao = usersDao;
     }
 
     @GetMapping("/posts")
@@ -31,12 +35,19 @@ public class PostController {
         return "posts/show";
     }
 
-    @GetMapping("/posts/{id}/edit")
-    public String editPostForm(@PathVariable long id, Model model) {
+    @PostMapping("/posts/{id}/edit")
+    public String editPost(@PathVariable long id, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
         Post post = postsDao.findById(id);
-        model.addAttribute("post", post);
-        return "posts/edit";
+
+        if (post != null) {
+            post.setTitle(title);
+            post.setBody(body);
+            postsDao.save(post);
+        }
+
+        return "redirect:/posts";
     }
+
 
     @PostMapping("/posts/{id}/delete")
     public String deletePost(@PathVariable long id) {

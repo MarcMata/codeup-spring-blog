@@ -31,11 +31,23 @@ public class UserController {
         //saves user
         usersDao.save(user);
         //redirects to login page
-        return "redirect:/ads";
+        return "redirect:/login";
     }
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "users/login";
+        return "/login";
+    }
+
+    @PostMapping("/login")
+    public String loginUser(@RequestParam (name="username") String username, @RequestParam (name="password") String password) {
+        //check if username matches the username in the database
+        User user = usersDao.findByUsername(username);
+        //check if password matches the password in the database
+        if (user == null && !password.equals(user.getPassword())) {
+            return "redirect:/login";
+        } else {
+            return "redirect:/posts";
+        }
     }
 }

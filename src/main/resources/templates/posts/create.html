@@ -6,18 +6,21 @@
 <body>
 <div th:replace="partials/navbar :: navbar"></div>
 
-
-<fieldset>
-  <legend>Create a Post</legend>
-  <form action="/posts/create" method="post">
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title" placeholder="Enter a title...">
-    <label for="body">Body</label>
-    <input type="text" name="body" id="body" size="50" height="100" placeholder="Enter something...">
-    <input type="submit" value="submit">
-  </form>
-</fieldset>
-
-
+<div class="page-wrapper justify-center">
+  <div class="container justify-center align-center grow">
+    <div class="row justify-center shrink">
+      <div class="column justify-center align-center grow">
+          <form action="/posts/create" method="post" class="d-flex flex-column" style="width: 800px">
+            <h2>Create a post!</h2>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="Enter a title...">
+            <label for="body">Body</label>
+            <textarea type="text" name="body" id="body" size="50" height="100" placeholder="Enter something..."></textarea>
+            <input type="submit" value="submit">
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
