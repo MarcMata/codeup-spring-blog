@@ -29,6 +29,8 @@ public class User {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Post> posts;
 
+
+
     public List<Post> getPosts() {
         return posts;
     }
