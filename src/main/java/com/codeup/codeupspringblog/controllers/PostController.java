@@ -8,6 +8,7 @@ import com.codeup.codeupspringblog.repositories.CategoryRepository;
 import com.codeup.codeupspringblog.repositories.CommentRepository;
 import com.codeup.codeupspringblog.repositories.PostRepository;
 import com.codeup.codeupspringblog.repositories.UserRepository;
+import com.codeup.codeupspringblog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
