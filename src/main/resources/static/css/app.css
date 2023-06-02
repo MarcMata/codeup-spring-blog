@@ -2,7 +2,55 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    /*create a cool linear gradient for dark grey with black */
+    background: linear-gradient(to right, #333, #000);
 }
+
+h1, h3 {
+    text-transform: uppercase;
+}
+
+h2, p{
+    color: white;
+}
+
+h1 {
+    background: linear-gradient(to right, #0737b7,#fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-decoration: underline;
+}
+
+/*make the h2 inside the card sentence case*/
+.card h2:first-letter {
+    text-transform: Capitalize;
+}
+/*unset the button properties and overwrite them with a cool blue color*/
+button {
+    all: unset;
+    color: white;
+    cursor: pointer;
+    border: 1px solid white;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 1px 5px;
+    transition: all ease .3s;
+    background-color: cornflowerblue;
+}
+
+.card button:hover, button:hover a {
+    transform: scale(1.05);
+    background-color: white;
+    color: cornflowerblue;
+}
+
+
 .navbar {
     display: flex;
     align-items: center;
@@ -80,9 +128,10 @@ a:hover {
     border-radius: 0.5rem;
     padding: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    background-color: lightgray;
+    /*create me a cool linear gradient gray color that meshes with darkness*/
+    background: linear-gradient(to right, #333, #000);
+    color: white;
     min-height: 150px;
-
 }
 
 
@@ -157,19 +206,22 @@ a:hover {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    background: linear-gradient(to right, #333, #000);
+    border-radius: 5px;
 }
 
 /* Close Button */
 .close {
-    color: #aaa;
+    color: red;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    transition: all ease .3s;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
+.close:hover:first-child,
+.close:focus:first-child {
     text-decoration: none;
     cursor: pointer;
+    transform: scale(1.1);
 }
