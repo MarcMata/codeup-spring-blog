@@ -21,13 +21,15 @@ public class PostController {
     private UserRepository usersDao;
     private CommentRepository commentsDao;
     private CategoryRepository categoriesDao;
+    private EmailService emailService;
 
 
-    public PostController(PostRepository postsDao, UserRepository usersDao, CommentRepository commentsDao, CategoryRepository categoriesDao) {
+    public PostController(PostRepository postsDao, UserRepository usersDao, CommentRepository commentsDao, CategoryRepository categoriesDao, EmailService emailService) {
         this.postsDao = postsDao;
         this.usersDao = usersDao;
         this.commentsDao = commentsDao;
         this.categoriesDao = categoriesDao;
+        this.emailService = emailService;
     }
 
     @GetMapping("/posts")
@@ -101,6 +103,7 @@ public class PostController {
         User user = usersDao.findById(id);
         post.setUser(user);
         postsDao.save(post);
+        emailService.prepareAndSend(post, "Post Created: " + post.getTitle(), "You have created a new post: " + post.getBody(), post.getUser().getEmail());
         return "redirect:/posts";
     }
 
