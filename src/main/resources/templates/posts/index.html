@@ -29,11 +29,11 @@
                                 <div th:id="'editModal-' + ${post.id}" class="modal">
                                     <div class="modal-content">
                                         <span class="close">&times;</span>
-                                        <form th:action="@{/posts/{id}/edit(id=${post.id})}" method="post" class="d-flex flex-column gap-10">
+                                        <form th:action="@{/posts/{id}/edit(id=${post.id})}" method="post"  class="d-flex flex-column gap-10">
                                             <h2>Make changes to your post!</h2>
                                             <input type="hidden" name="_method" value="put"/>
                                             <h3>Title: </h3>
-                                            <input type="text" name="title" placeholder="Title" th:value="${post.title}"/>
+                                            <input type="text" name="title" placeholder="Title" th:value="${post.title}" />
                                             <h3>Body: </h3>
                                             <textarea name="body" placeholder="Body" th:text="${post.body}"></textarea>
                                             <button type="submit">Submit Changes</button>

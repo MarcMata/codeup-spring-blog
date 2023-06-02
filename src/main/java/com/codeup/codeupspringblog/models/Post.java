@@ -31,6 +31,7 @@ public class Post {
             joinColumns = @JoinColumn(name="post_id"),
             inverseJoinColumns = @JoinColumn(name="category_id")
     )
+
     private Set<Category> categories;
 
     public Set<Category> getCategories() {

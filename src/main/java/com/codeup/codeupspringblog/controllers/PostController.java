@@ -3,6 +3,7 @@ package com.codeup.codeupspringblog.controllers;
 import com.codeup.codeupspringblog.models.Category;
 import com.codeup.codeupspringblog.models.Comment;
 import com.codeup.codeupspringblog.models.Post;
+import com.codeup.codeupspringblog.models.User;
 import com.codeup.codeupspringblog.repositories.CategoryRepository;
 import com.codeup.codeupspringblog.repositories.CommentRepository;
 import com.codeup.codeupspringblog.repositories.PostRepository;
@@ -11,9 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -67,30 +66,40 @@ public class PostController {
     }
 
     @GetMapping("/posts/create")
-    public String createForm() {
+    public String createForm(Model model) {
+        model.addAttribute("post", new Post());
         return "posts/create";
     }
 
-    @PostMapping("/posts/create")
-    public String createPost(@RequestParam(name="title") String title, @RequestParam(name="body") String body, @RequestParam(name="categories") String categories) {
-        Post post = new Post(title, body);
-        Set<Category> categorySet = makeCategorySet(categories);
-        if (categorySet.size()>0) {
-            List<Category> categoriesToAdd = new ArrayList<>();
-            for (Category category : categorySet) {
-                Category categoryFromDb = categoriesDao.findCategoriesByName(category.getName());
-                if (categoryFromDb == null) {
-                    categoriesToAdd.add(category);
-                } else {
-                    categoriesToAdd.add(categoryFromDb);
-                }
-            }
-            categorySet.clear();
-            //repopulates with new list
-            categorySet.addAll(categoriesToAdd);
+//    @PostMapping("/posts/create")
+//    public String createPost(@RequestParam(name="title") String title, @RequestParam(name="body") String body, @RequestParam(name="categories") String categories) {
+//        Post post = new Post(title, body);
+//        Set<Category> categorySet = makeCategorySet(categories);
+//        if (categorySet.size()>0) {
+//            List<Category> categoriesToAdd = new ArrayList<>();
+//            for (Category category : categorySet) {
+//                Category categoryFromDb = categoriesDao.findCategoriesByName(category.getName());
+//                if (categoryFromDb == null) {
+//                    categoriesToAdd.add(category);
+//                } else {
+//                    categoriesToAdd.add(categoryFromDb);
+//                }
+//            }
+//            categorySet.clear();
+//            //repopulates with new list
+//            categorySet.addAll(categoriesToAdd);
+//
+//            post.setCategories(categorySet);
+//        }
+//        postsDao.save(post);
+//        return "redirect:/posts";
+//    }
 
-            post.setCategories(categorySet);
-        }
+    @PostMapping("/posts/create")
+    public String createPost(@ModelAttribute Post post) {
+        long id = 1;
+        User user = usersDao.findById(id);
+        post.setUser(user);
         postsDao.save(post);
         return "redirect:/posts";
     }
