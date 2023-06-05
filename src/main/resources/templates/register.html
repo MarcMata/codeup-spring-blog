@@ -4,14 +4,15 @@
   <div th:replace="partials/head :: head"></div>
 </head>
 <body>
-<div th:replace="partials/navbar :: navbar"></div>
+
 
 <div class="page-wrapper">
+  <div th:replace="partials/navbar :: navbar"></div>
   <div class="container">
     <div class="row">
       <div class="column ">
-        <h1>Register</h1>
-        <form action="/register" method="post" class="d-flex column">
+        <h1>Create an account</h1>
+        <form th:action="@{/register}" method="post" class="d-flex column">
           <label for="username">Username</label>
           <input type="text" name="username" id="username" placeholder="Enter a username...">
           <label for="email">Email</label>
