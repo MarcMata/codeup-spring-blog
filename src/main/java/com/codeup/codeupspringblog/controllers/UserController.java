@@ -50,4 +50,8 @@ public class UserController {
             return "redirect:/posts";
         }
     }
+    @GetMapping("/profile")
+    public String showProfile() {
+        return "/profile";
+    }
 }
